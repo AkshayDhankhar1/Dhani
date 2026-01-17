@@ -1,0 +1,34 @@
+const mongoose=require("mongoose");
+const transactionSchema=new mongoose.Schema({
+    transactionId:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    fromWallet:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Wallet",
+        required:true
+    },
+    toWallet:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Wallet",
+        required:true
+    },
+    amount:{
+        type:Number,
+        required:true,
+        min:10
+    },
+    status:{
+        type:String,
+        enum:["success","failed","pending"],
+        required:true,
+        default:"pending"
+    },
+    failureReason:{
+        type:String
+    }
+},{timestamps:true
+})
+export const trans=mongoose.model('Transactions',transactionSchema);
