@@ -43,7 +43,7 @@ exports.signup=  async(req,res)=>{
         const newWallet=new Wallet({
             user:newUser._id
         })
-        const session=await mongoose.startSession();
+        const session=await mongoose.startSession(); // session for rollback condition 
         await session.startTransaction();
         try{
         await newUser.save({session});
