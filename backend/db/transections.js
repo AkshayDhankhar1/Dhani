@@ -18,7 +18,7 @@ const transactionSchema=new mongoose.Schema({
     amount:{
         type:Number,
         required:true,
-        min:10
+        min:1
     },
     status:{
         type:String,
@@ -31,4 +31,4 @@ const transactionSchema=new mongoose.Schema({
     }
 },{timestamps:true
 })
-export const trans=mongoose.model('Transactions',transactionSchema);
+export const Transaction=mongoose.model('Transaction',transactionSchema);
