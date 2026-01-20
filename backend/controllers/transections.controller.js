@@ -15,7 +15,7 @@ exports.transferMoney = async (req, res) => {
 
     if (amount < 1) {
         return res.status(400).json({
-            msg: "please send a valid amount "
+            msg: "please send a valid amount"
         });
     }
     console.log("Valid Amount ✅")
